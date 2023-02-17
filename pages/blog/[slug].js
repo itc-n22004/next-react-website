@@ -38,7 +38,7 @@ export default function Post ({
 
         <figure>
           <Image
-	    key={eyecatch.url}
+	          key={eyecatch.url}
             src={eyecatch.url}
             alt=""
             layout="responsive"
@@ -46,8 +46,8 @@ export default function Post ({
             height={eyecatch.height}
             sizes="(min-width: 1152px) 1152px, 100vw"
             priority
-	    placeholder="blur"
-	    blurDataURL={eyecatch.blurDataURL}
+	          placeholder="blur"
+	          blurDataURL={eyecatch.blurDataURL}
           />
         </figure>
         
@@ -59,7 +59,7 @@ export default function Post ({
           </TwoColumnMain>
           <TwoColumnSidebar>
             <PostCategories categories={categories} />
-	  </TwoColumnSidebar>
+	        </TwoColumnSidebar>
         </TwoColumn>
         
         <Pagination
@@ -69,6 +69,8 @@ export default function Post ({
           nextUrl={`/blog/${nextPost.slug}`}
         />
 
+        <div>{prevPost.title} {prevPost.slug}</div>
+        <div>{nextPost.title} {nextPost.slug}</div>
 		  </article>
 		</Container>
 	)
@@ -106,7 +108,7 @@ export async function getStaticProps(context) {
 			content: post.content,
 			eyecatch: eyecatch,
 			categories: post.categories,
-                        description: description,
+      description: description,
 			prevPost: prevPost,
 			nextPost: nextPost,
 		},
